@@ -5,7 +5,6 @@
 
 var express = require('express');
 var routes = require('./routes');
-var http = require('http');
 var path = require('path');
 
 var app = express();
@@ -35,8 +34,5 @@ app.get('/flight/:number', routes.flight);
 app.put('/flight/arrive/:number', routes.arrive);
 app.put('/flight/depart/:number',routes.depart);
 app.get('/list', routes.list);
-//app.get('/flight2', routes.flight2);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});
+module.exports = app;
