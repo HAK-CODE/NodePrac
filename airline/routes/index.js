@@ -48,6 +48,10 @@ exports.depart = function (req, res) {
     }
 };
 
+exports.list = function (req, res) {
+    res.render('list', {title: "AIRLINE", flights: flights});
+};
+
 /*
 exports.flight1 = function (req, res) {
     res.json(200, flights[18].getinfo());
