@@ -1,5 +1,5 @@
 var http = require('http');
-
+var db = require('./db');
 // Flights are data small db
 var flights = require('./data/index');
 var app = require('./app')(flights);

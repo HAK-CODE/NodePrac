@@ -3,6 +3,8 @@
  * GET home page.
  */
 
+var FlightSchema = require('../schema/flight');
+
 module.exports = function (flights) {
 
     // flight is object blue print
@@ -33,6 +35,18 @@ module.exports = function (flights) {
         }
         else {
             flights[num].triggerArrival();
+
+            var record = new FlightSchema(flights[num].getinfo());
+            record.save(function (err) {
+                if (err)
+                {
+                    console.log("Error");
+                }
+                else{
+                    console.log("Success data saved.");
+                }
+            });
+
             res.status(200).json({status: 'Success'});
         }
     };
